@@ -13,20 +13,22 @@
     </header>
     <section>
         <h2>Gerando um número aleatório entre 1 a 100...</h2>
-        <form action="res.php" method="get" name="numero">
+        <form action="res.php" method="get">
 
         <?php 
-        
-        $valor = $_GET["numero"];
 
-        $num = rand(1, 100);
+        $num = mt_rand(1, 100);
 
-        echo "<p>O número gerado foi: $num</p>";
+        if ($num === 50) {
+            echo "<p>Parabéns</p>";
+        }
+
+        echo "<p>O número gerado foi: <strong>$num</strong></p>";
         
         ?>
-        </form>
 
-    <p style="display:flex; justify-content: center;"><a href="javascript:history.go(-1)">Retornar</a></p>
+        <input type="submit" value="Gerar">
+        </form>
     </section>
 </body>
 </html>
