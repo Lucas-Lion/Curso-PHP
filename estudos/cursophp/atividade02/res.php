@@ -19,8 +19,12 @@
 
         $calculo = $valor / 4.97;    
 
-        echo ("O valor em doláres é US$");
-        echo number_format($calculo, 2, ',', '.');
+        // echo ("O valor em doláres é US$");
+        // echo number_format($calculo, 2, ',', '.');
+
+        $padrao = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
+
+        echo "Seus " . numfmt_format_currency($padrao, $valor, "BRL") . " Equivalem a " . numfmt_format_currency($padrao, $valor, "USD");
 
         ?>
 
